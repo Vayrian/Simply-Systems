@@ -25,10 +25,25 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:flutter/foundation.dart' show kIsWeb, kDebugMode;  // ← FIXED: added this import
 
 class ApiService {
-  static const String baseUrl = 'https://simply-systems-api.onrender.com/'; // Android emulator
-  // For web/Edge testing: change to 'http://localhost:5000'
+  // Dynamic base URL: different for web vs mobile
+  static String get baseUrl {
+    if (kIsWeb) {
+      // Web: use relative URL locally, or Render URL in production
+      if (kDebugMode) {
+        return 'http://localhost:5000'; // local backend
+      } else {
+        return 'https://simply-systems-api.onrender.com'; // deployed backend
+      }
+    } else {
+      // Mobile (Android emulator / iOS simulator / physical device)
+      return 'https://simply-systems-api.onrender.com'; // deployed backend
+      // For local dev on emulator: return 'http://10.0.2.2:5000';
+      // For physical device on same Wi-Fi: return 'http://192.168.x.x:5000';
+    }
+  }
 
   Future<Map<String, String>> _getAuthHeaders({String? providedToken}) async {
     String? token = providedToken;
@@ -197,16 +212,18 @@ class ApiService {
       throw Exception('Failed to fetch front history (${response.statusCode})');
     }
   }
-  Future<List<dynamic>> getMessages(String token) async {
-  final response = await http.get(
-    Uri.parse('$baseUrl/api/messages'),
-    headers: await _getAuthHeaders(providedToken: token),
-  );
 
-  if (response.statusCode == 200) {
-    return jsonDecode(response.body);
-  } else {
-    throw Exception('Failed to fetch messages (${response.statusCode})');
+  // Get messages
+  Future<List<dynamic>> getMessages(String token) async {
+    final response = await http.get(
+      Uri.parse('$baseUrl/api/messages'),
+      headers: await _getAuthHeaders(providedToken: token),
+    );
+
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body);
+    } else {
+      throw Exception('Failed to fetch messages (${response.statusCode})');
+    }
   }
- }
 }
