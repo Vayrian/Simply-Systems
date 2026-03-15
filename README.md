@@ -42,8 +42,8 @@ Built with **Flutter** and connects to a **Python/Flask** backend (https://githu
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/simply-systems-flutter.git
-   cd simply-systems-flutter
+   git clone https://github.com/Vayrian/simply-systems.git
+   cd simply-systems
 
 
 2. Install dependencies:
