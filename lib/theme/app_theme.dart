@@ -34,8 +34,8 @@ class AppTheme {
   static const Color accentTeal = Color(0xFF2DD4BF);
   static const Color accentPurple = Color(0xFFC084FC);
 
-  static const Color primaryNeon = accentTeal;     // alias
-  static const Color secondaryNeon = accentAmber;  // alias
+  static const Color primaryNeon = accentTeal;     
+  static const Color secondaryNeon = accentAmber;  
   static ThemeData get theme => ThemeData(
         useMaterial3: true,
         brightness: Brightness.dark,
