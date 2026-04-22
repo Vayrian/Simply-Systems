@@ -1,4 +1,4 @@
-# Simply Systems – Flutter Client
+# Simply Systems – Client(s)
 
 A mobile app (web, iOS & Android) for plural systems to manage system members (alters), track fronting history, communicate internally via real-time chat, and more.
 
