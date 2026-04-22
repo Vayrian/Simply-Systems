@@ -5,7 +5,7 @@ A mobile app (web, iOS & Android) for plural systems to manage system members (a
 Built with **Flutter** and connects to a **Python/Flask** backend (https://github.com/Vayrian/Simply-systems-api).
 
 ## Updates
-**I have stopped development for the most part on this project. If it gets enough attention, I will pick development back up and develop more features. Let me know if I shoudl continue development or not : )**
+**I have stopped development for the most part on this project. If it gets enough attention, I will pick development back up and develop more features. Let me know if I should continue development or not : )**
 
 
 
