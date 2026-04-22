@@ -72,7 +72,6 @@ class _MembersScreenState extends State<MembersScreen> {
 
     final success = await provider.setCurrentFrenter(newFrenterId, auth.token);
     if (success) {
-      // No need for local timer restart — provider handles it
     }
   }
 
