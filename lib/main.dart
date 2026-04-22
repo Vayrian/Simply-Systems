@@ -30,7 +30,7 @@ import 'providers/member_provider.dart';
 import 'providers/chat_provider.dart';
 import 'screens/login_screen.dart';
 import 'screens/home_screen.dart';
-import 'theme/app_theme.dart'; // ← add this import if missing
+import 'theme/app_theme.dart'; 
 
 void main() {
   runApp(const MyApp());
